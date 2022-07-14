@@ -1,18 +1,32 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>Hi my name is {{ name }} and my role is {{ role }}</h1>
+    <input type="text" placeholder="Name" v-model="name" />
+    <input type="number" placeholder="Role" v-model="role" />
+    <button @click="submit">Submit</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "HomeView",
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      name: null,
+      role: null,
+    };
+  },
+  methods: {
+    deBugger() {
+      console.log(this.name, this.role);
+      console.log("deBugger");
+    },
+    submit() {
+      console.log(this.name, this.role);
+      this.deBugger();
+    },
   },
 };
 </script>
